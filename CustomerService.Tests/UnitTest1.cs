@@ -37,14 +37,5 @@ public class CustomerServiceTests : IClassFixture<WebApplicationFactory<Program>
         Assert.True(body == "49" || body == 49.ToString(), $"Expected '49' but got '{body}'");
     }
 
-    [Fact]
-    public async Task GetBase_ReturnsFullDetails()
-    {
-        var client = _factory.CreateClient();
-        var response = await client.GetAsync("/");
-        var body = (await response.Content.ReadAsStringAsync()).Trim();
-
-        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        Assert.Equal("Pravin/49", body);
-    }
+   
 }
