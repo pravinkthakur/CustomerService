@@ -11,7 +11,22 @@ public class CustomerServiceTests : IClassFixture<WebApplicationFactory<Program>
 
     public CustomerServiceTests(WebApplicationFactory<Program> factory)
     {
-        _factory = factory;
+        // Ensure content root works on GitHub Actions (Linux) and Windows
+        _factory = factory.WithWebHostBuilder(builder =>
+        {
+            builder.UseContentRoot(AppContext.BaseDirectory);
+        });
+    }
+
+    [Fact]
+    public async Task GetRoot_ReturnsRoot()
+    {
+        var client = _factory.CreateClient();
+        var response = await client.GetAsync("/");
+        var body = await response.Content.ReadAsStringAsync();
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        Assert.Equal("CustomerService Root", body);
     }
 
     [Fact]
@@ -19,7 +34,7 @@ public class CustomerServiceTests : IClassFixture<WebApplicationFactory<Program>
     {
         var client = _factory.CreateClient();
         var response = await client.GetAsync("/name");
-        var body = (await response.Content.ReadAsStringAsync()).Trim();
+        var body = await response.Content.ReadAsStringAsync();
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         Assert.Equal("Pravin", body);
@@ -30,12 +45,9 @@ public class CustomerServiceTests : IClassFixture<WebApplicationFactory<Program>
     {
         var client = _factory.CreateClient();
         var response = await client.GetAsync("/age");
-        var body = (await response.Content.ReadAsStringAsync()).Trim();
+        var body = await response.Content.ReadAsStringAsync();
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        // allow string or number (Linux sometimes serialises differently)
-        Assert.True(body == "49" || body == 49.ToString(), $"Expected '49' but got '{body}'");
+        Assert.Equal("49", body);
     }
-
-   
 }
