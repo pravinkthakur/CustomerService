@@ -17,6 +17,7 @@ C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\CustomerService.AssemblyInfo.
 C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\CustomerService.csproj.CoreCompileInputs.cache
 C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\CustomerService.MvcApplicationPartsAssemblyInfo.cs
 C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\CustomerService.MvcApplicationPartsAssemblyInfo.cache
+C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\CustomerService.sourcelink.json
 C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\staticwebassets.build.json
 C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\staticwebassets.development.json
 C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\staticwebassets\msbuild.CustomerService.Microsoft.AspNetCore.StaticWebAssets.props
@@ -31,4 +32,3 @@ C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\refint\CustomerService.dll
 C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\CustomerService.pdb
 C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\CustomerService.genruntimeconfig.cache
 C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\ref\CustomerService.dll
-C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\CustomerService.sourcelink.json
