@@ -23,5 +23,12 @@
   <ItemGroup>
     <None Include="..\CustomerService\bin\Debug\net8.0\CustomerService.dll" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
+<ItemGroup>
+  <ProjectReference Include="..\CustomerService\CustomerService.csproj" />
+</ItemGroup>
 
+<Target Name="CopyProgramDll" AfterTargets="Build">
+  <Copy SourceFiles="..\CustomerService\bin\$(Configuration)\net8.0\CustomerService.dll"
+        DestinationFolder="$(OutputPath)" SkipUnchangedFiles="true" />
+</Target>
 </Project>
