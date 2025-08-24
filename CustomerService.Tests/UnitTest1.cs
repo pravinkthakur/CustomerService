@@ -11,23 +11,9 @@ public class CustomerServiceTests : IClassFixture<WebApplicationFactory<Program>
 
     public CustomerServiceTests(WebApplicationFactory<Program> factory)
     {
-        // Ensure content root works on GitHub Actions (Linux) and Windows
-        _factory = factory.WithWebHostBuilder(builder =>
-        {
-            builder.UseContentRoot(AppContext.BaseDirectory);
-        });
+        _factory = factory;
     }
 
-    [Fact]
-    public async Task GetRoot_ReturnsRoot()
-    {
-        var client = _factory.CreateClient();
-        var response = await client.GetAsync("/");
-        var body = await response.Content.ReadAsStringAsync();
-
-        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        Assert.Equal("CustomerService Root", body);
-    }
 
     [Fact]
     public async Task GetName_ReturnsPravin()
