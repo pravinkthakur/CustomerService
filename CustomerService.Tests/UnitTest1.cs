@@ -1,19 +1,28 @@
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.Hosting;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace CustomerService.Tests;
 
-public class CustomerServiceTests : IClassFixture<WebApplicationFactory<Program>>
+public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
-    private readonly WebApplicationFactory<Program> _factory;
+    protected override void ConfigureWebHost(IWebHostBuilder builder)
+    {
+        // Use current working directory (Windows: C:\..., Linux: /home/runner/...)
+        builder.UseContentRoot(Directory.GetCurrentDirectory());
+    }
+}
 
-    public CustomerServiceTests(WebApplicationFactory<Program> factory)
+public class CustomerServiceTests : IClassFixture<CustomWebApplicationFactory>
+{
+    private readonly CustomWebApplicationFactory _factory;
+
+    public CustomerServiceTests(CustomWebApplicationFactory factory)
     {
         _factory = factory;
     }
-
 
     [Fact]
     public async Task GetName_ReturnsPravin()
