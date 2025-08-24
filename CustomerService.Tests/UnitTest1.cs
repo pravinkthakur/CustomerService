@@ -37,7 +37,7 @@ public class CustomerServiceTests : IClassFixture<WebApplicationFactory<Program>
     }
 
     [Fact]
-    public async Task GetAge_Returns49()
+    public async Task GetBase_ReturnsFullDetails()
     {
         var client = _factory.CreateClient();
         var response = await client.GetAsync("/");
