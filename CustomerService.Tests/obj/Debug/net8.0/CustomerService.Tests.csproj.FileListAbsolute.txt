@@ -436,3 +436,4 @@ C:\dev\rejuvenate\CustomerService.Tests\obj\Debug\net8.0\refint\CustomerService.
 C:\dev\rejuvenate\CustomerService.Tests\obj\Debug\net8.0\CustomerService.Tests.pdb
 C:\dev\rejuvenate\CustomerService.Tests\obj\Debug\net8.0\CustomerService.Tests.genruntimeconfig.cache
 C:\dev\rejuvenate\CustomerService.Tests\obj\Debug\net8.0\ref\CustomerService.Tests.dll
+C:\dev\rejuvenate\CustomerService.Tests\obj\Debug\net8.0\CustomerService.Tests.sourcelink.json

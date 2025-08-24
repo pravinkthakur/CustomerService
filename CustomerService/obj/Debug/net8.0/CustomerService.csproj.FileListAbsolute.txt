@@ -31,3 +31,4 @@ C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\refint\CustomerService.dll
 C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\CustomerService.pdb
 C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\CustomerService.genruntimeconfig.cache
 C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\ref\CustomerService.dll
+C:\dev\rejuvenate\CustomerService\obj\Debug\net8.0\CustomerService.sourcelink.json

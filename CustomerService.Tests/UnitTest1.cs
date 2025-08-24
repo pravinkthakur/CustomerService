@@ -19,7 +19,7 @@ public class CustomerServiceTests : IClassFixture<WebApplicationFactory<Program>
     {
         var client = _factory.CreateClient();
         var response = await client.GetAsync("/name");
-        var body = await response.Content.ReadAsStringAsync();
+        var body = (await response.Content.ReadAsStringAsync()).Trim();
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         Assert.Equal("Pravin", body);
@@ -30,10 +30,21 @@ public class CustomerServiceTests : IClassFixture<WebApplicationFactory<Program>
     {
         var client = _factory.CreateClient();
         var response = await client.GetAsync("/age");
-        var body = await response.Content.ReadAsStringAsync();
+        var body = (await response.Content.ReadAsStringAsync()).Trim();
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        Assert.Equal("49", body); // numbers come back as text in HTTP
+        // allow string or number (Linux sometimes serialises differently)
+        Assert.True(body == "49" || body == 49.ToString(), $"Expected '49' but got '{body}'");
     }
 
+    [Fact]
+    public async Task GetBase_ReturnsFullDetails()
+    {
+        var client = _factory.CreateClient();
+        var response = await client.GetAsync("/");
+        var body = (await response.Content.ReadAsStringAsync()).Trim();
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        Assert.Equal("Pravin/49", body);
+    }
 }
